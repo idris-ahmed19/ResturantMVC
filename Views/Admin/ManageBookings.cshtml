@@ -1,0 +1,38 @@
+﻿@model List<Booking>
+
+<h2>Manage Bookings</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Customer Id</th>
+            <th>Table Id</th>
+            <th>Date</th>
+            <th>Customer Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.BookingId</td>
+                <td>@booking.FK_CustomerId</td>
+                <td>@booking.FK_TableId</td>
+                <td>@booking.BookingDate.ToShortDateString()</td>
+                <td>@booking.CustomerAmount</td>
+                   
+                <td>
+                    <a href="@Url.Action("EditBooking", new { id = booking.BookingId })" class="btn btn-primary">Edit</a>
+                    <form asp-action="DeleteBooking" asp-route-id="@booking.BookingId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("CreateBooking")" class="btn btn-success">Add New Booking</a>
+

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+
+<div class="admin-navigation">
+    <h2>Manage Your Restaurant</h2>
+    <ul>
+        <li>
+            <a asp-action="ManageMenu" asp-controller="Admin">Manage Menu</a>
+        </li>
+        <li>
+            <a asp-action="ManageBookings" asp-controller="Admin">Manage Bookings</a>
+        </li>
+        <li>
+            <a asp-action="SomeOtherAdminFunction" asp-controller="Admin">Other Admin Action</a>
+        </li>
+    </ul>
+</div>

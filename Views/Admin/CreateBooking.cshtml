@@ -1,0 +1,30 @@
+﻿@model Booking
+
+<h2>Add New Booking</h2>
+
+<form asp-action="CreateBooking" method="post">
+    <div class="form-group">
+        <label asp-for="FK_CustomerId"></label>
+        <input asp-for="FK_CustomerId" class="form-control" />
+        <span asp-validation-for="FK_CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FK_TableId"></label>
+        <input asp-for="FK_TableId" class="form-control" />
+        <span asp-validation-for="FK_TableId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BookingDate"></label>
+        <input asp-for="BookingDate" type="date" class="form-control" />
+        <span asp-validation-for="BookingDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerAmount"></label>
+        <input asp-for="CustomerAmount" class="form-control" />
+        <span asp-validation-for="CustomerAmount" class="text-danger"></span>
+    </div>
+    
+
+    <button type="submit" class="btn btn-success">Add Booking</button>
+</form>

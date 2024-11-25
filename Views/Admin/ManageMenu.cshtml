@@ -1,0 +1,42 @@
+﻿@model List<Menu>
+
+	<h2>Manage Menu</h2>
+
+	<table class="table">
+		<thead>
+			<tr>
+				
+			<th>Dish Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Availability</th>
+			<th>Actions</th>
+
+			</tr>
+
+
+		</thead>
+		<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.DishName</td>
+				<td>@item.Description</td>
+				<td>@item.Price</td>
+				<td>@item.Availability</td>
+				<td>
+					<a href="@Url.Action("EditMenu", new { id = item.MenuId })" class="btn btn-primary">Edit</a>
+					<form asp-action="DeleteMenu" asp-route-id="@item.MenuId" method="post" style="display:inline;">
+						<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this dish?');">Delete</button>
+					</form>
+
+				</td>
+
+			</tr>
+		}
+
+		</tbody>
+
+	</table>
+
+<a href="@Url.Action("CreateMenu")" class="btn btn-success">Add New Dish</a>

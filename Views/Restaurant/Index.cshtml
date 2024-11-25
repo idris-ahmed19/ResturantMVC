@@ -1,0 +1,27 @@
+﻿@model List<Menu>
+
+<div class="container">
+	<h1>Our Menu</h1>
+	<div class="row">
+        @foreach (var menu in Model)
+        {
+            <div class="col-md-4 col-sm-6 mb-4">
+                <h3>@menu.DishName</h3>
+                <p>@menu.Description</p>
+                <p>
+                    @if (menu.Availability)
+                    {
+                        <span class="text-success">Available</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Unavailable</span>
+                    }
+                </p>
+                <p><strong>Price: </strong>@menu.Price.ToString("C")</p>
+            </div>
+        }
+
+	</div>
+
+</div>
